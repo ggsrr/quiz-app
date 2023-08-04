@@ -1,0 +1,8 @@
+<div class="card flex justify-content-center" *ngFor="let element of quizElements ; index as i">
+  <p>{{element.question}}</p>
+  <p-selectButton [options]="element.listOfAnswers" (onChange) = "handleSelectChange(element,$event)"></p-selectButton>
+</div>
+<br>
+<br>
+<br>
+<button pButton *ngIf="showSubmitButton" type="submit" label="Submit" (click)="submit()" ></button>

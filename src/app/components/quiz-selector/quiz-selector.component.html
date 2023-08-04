@@ -1,0 +1,30 @@
+<div class="header-container" ><h1>Quiz Maker</h1></div>
+<div class="main-container">
+<div class="card flex justify-content-center">
+  <form [formGroup]="selectorForm" novalidate (ngSubmit)="createQuiz()">
+    <p-dropdown
+      id ="categorySelect"
+      [options]="categories"
+      formControlName="category"
+      name="category"
+      placeholder="Select a category"
+      optionLabel="name"
+      optionValue="id"
+      appendTo="body">
+    </p-dropdown>
+    <p-dropdown
+      id ="difficultySelect"
+      [options]="difficulty"
+      formControlName="difficulty"
+      name="difficulty"
+      placeholder="Select difficulty"
+      appendTo="body"
+    >
+    </p-dropdown>
+    <button id = "createBtn" pButton type="submit" label="Create"></button>
+  </form>
+</div>
+<p-panel *ngIf="quizCreated.length>0" [showHeader]="false">
+  <app-quiz-displayer [quizElements]="quizCreated"></app-quiz-displayer>
+</p-panel>
+</div>

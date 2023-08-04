@@ -1,0 +1,19 @@
+<div class="header-container"><h1>Results</h1></div>
+<div class="main-container">
+<p-panel  *ngIf="quizSubmitted.length>0" [showHeader]="false">
+<div class="card flex justify-content-center" *ngFor="let element of quizSubmitted ; index as i">
+  <p>{{element.question}}</p>
+  <p-selectButton [options]="element.listOfAnswers" [disabled]="true" >
+    <ng-template pTemplate="item" let-item>
+      <button pButton appMyColorizedButton [answerElement]="item" [quizElement]="element">{{item}}</button>
+    </ng-template>
+  </p-selectButton>
+</div>
+  <br>
+  <br>
+  <br>
+  <p appMyColorizedScore [score]="score"> You scored {{score}} out of {{quizSubmitted.length}}</p>
+  <button pButton type="button" label="Create a new quiz" (click)="navigateToHome()"></button>
+
+</p-panel>
+</div>
